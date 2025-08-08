@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { TeamReportComponent } from './team-report.component';
+
+describe('TeamReportComponent', () => {
+  let component: TeamReportComponent;
+  let fixture: ComponentFixture<TeamReportComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [TeamReportComponent]
+    });
+    fixture = TestBed.createComponent(TeamReportComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

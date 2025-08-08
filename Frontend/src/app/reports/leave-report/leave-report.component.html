@@ -1,0 +1,475 @@
+<app-nav-bar></app-nav-bar>
+<div class="main-wrapper">
+
+    <div class="page-wrapper">
+
+        <!-- Start Content -->
+        <div class="content">
+
+            <!-- Page Header -->
+            <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-3 mb-3">
+                <div class="flex-grow-1">
+                    <h5 class="fw-bold">Reports</h5>
+                </div>
+                <div class="dropdown">
+                    <a href="javascript:void(0);" class="btn btn-primary d-inline-flex align-items-center"
+                        data-bs-toggle="dropdown">
+                        <i class="ti ti-file-import me-1"></i>Export
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end p-1">
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item rounded-1">Download as PDF</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item rounded-1">Download as Excel</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End Page Header -->
+
+            <div class="d-flex align-items-center flex-wrap row-gap-2 mb-3">
+                <a [routerLink]="['/reports/team-report']" class="btn btn-sm btn-light fs-14 me-2">Team Report</a>
+                <a [routerLink]="['/reports/leave-report']" class="btn btn-sm btn-dark border fs-14 me-2">Leave
+                    Report</a>
+                <a [routerLink]="['/reports/payroll-report']" class="btn btn-sm btn-light border fs-14 me-2">Payroll
+                    Report</a>
+                <a [routerLink]="['/reports/contact-report']" class="btn btn-sm btn-light border fs-14 me-2">Contact
+                    Report</a>
+                <a [routerLink]="['/reports/email-report']" class="btn btn-sm btn-light border fs-14 me-2">Email
+                    Report</a>
+                <a [routerLink]="['/reports/security-report']" class="btn btn-sm btn-light border fs-14 me-2">Security
+                    Report</a>
+                <a [routerLink]="['/reports/work-from-home-report']" class="btn btn-sm btn-light border fs-14">Work From
+                    Home Report</a>
+            </div>
+
+            <div class="card shadow">
+                <div class="card-body">
+                    <form action="#">
+                        <div class="row align-items-end gy-3 gx-2">
+                            <div class="col-md-9">
+                                <div class="row gy-3 gx-2">
+                                    <div class="col-md-6">
+                                        <div>
+                                            <label class="form-label">From</label>
+                                            <div class="input-group w-auto input-group-flat">
+                                                <input type="text" class="form-control" data-provider="flatpickr"
+                                                    data-date-format="d M, Y" placeholder="dd/mm/yyyy">
+                                                <span class="input-group-text">
+                                                    <i class="ti ti-calendar"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <label class="form-label">To</label>
+                                            <div class="input-group w-auto input-group-flat">
+                                                <input type="text" class="form-control" data-provider="flatpickr"
+                                                    data-date-format="d M, Y" placeholder="dd/mm/yyyy">
+                                                <span class="input-group-text">
+                                                    <i class="ti ti-calendar"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div>
+                                    <button type="submit" class="btn btn-dark w-100 btn-lg rounded">Apply
+                                        Filter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-3 mb-3">
+                <div class="datatable-search">
+                    <a href="javascript:void(0);" class="input-text"><i class="ti ti-search"></i></a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="dropdown me-2">
+                        <a href="javascript:void(0);"
+                            class="btn fs-14 py-1 btn-outline-white d-inline-flex align-items-center"
+                            data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                            <i class="ti ti-filter me-1"></i>Filter
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0 border-0" id="filter-dropdown">
+                            <div class="card mb-0">
+                                <div class="card-header">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h6 class="fw-bold mb-0">Filter</h6>
+                                        <div class="d-flex align-items-center">
+                                            <a href="javascript:void(0);"
+                                                class="link-danger text-decoration-underline">Clear All</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form action="#">
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <label class="form-label">Name</label>
+                                                <a href="javascript:void(0);" class="link-primary mb-1">Reset</a>
+                                            </div>
+                                            <div class="dropdown">
+                                                <a href="javascript:void(0);"
+                                                    class="dropdown-toggle justify-content-between btn bg-light justify-content-start border w-100"
+                                                    data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                                    aria-expanded="true">
+                                                    Select
+                                                </a>
+                                                <ul class="dropdown-menu dropdown-menu w-100">
+                                                    <li>
+                                                        <label
+                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
+                                                            <input class="form-check-input m-0 me-2" type="checkbox">
+                                                            John Carter
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label
+                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
+                                                            <input class="form-check-input m-0 me-2" type="checkbox">
+                                                            Sophia White
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label
+                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
+                                                            <input class="form-check-input m-0 me-2" type="checkbox">
+                                                            Michael Johnson
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label
+                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
+                                                            <input class="form-check-input m-0 me-2" type="checkbox">
+                                                            Emily Clark
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label
+                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
+                                                            <input class="form-check-input m-0 me-2" type="checkbox">
+                                                            David Anderson
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <label class="form-label">Status</label>
+                                                <a href="javascript:void(0);" class="link-primary mb-1">Reset</a>
+                                            </div>
+                                            <div class="dropdown">
+                                                <a href="javascript:void(0);"
+                                                    class="dropdown-toggle justify-content-between btn bg-light justify-content-start border w-100"
+                                                    data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                                    aria-expanded="true">
+                                                    Select
+                                                </a>
+                                                <ul class="dropdown-menu dropdown-menu w-100">
+                                                    <li>
+                                                        <label
+                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
+                                                            <input class="form-check-input m-0 me-2" type="checkbox">
+                                                            Active
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label
+                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
+                                                            <input class="form-check-input m-0 me-2" type="checkbox">
+                                                            Inactive
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-end">
+                                        <button type="button" class="btn btn-outline-white me-2"
+                                            id="close-filter">Close</button>
+                                        <button type="submit" class="btn btn-primary">Filter</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="javascript:void(0);"
+                            class="dropdown-toggle btn fs-14 py-1 btn-outline-white d-inline-flex align-items-center"
+                            data-bs-toggle="dropdown">
+                            <i class="ti ti-sort-descending-2 text-dark me-1"></i>Sort By : Newest
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end p-1">
+                            <li>
+                                <a href="javascript:void(0);" class="dropdown-item rounded-1">Newest</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="dropdown-item rounded-1">Oldest</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="dropdown-item rounded-1">Desending</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="dropdown-item rounded-1">Last Month</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="dropdown-item rounded-1">Last 7 Days</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-nowrap datatable">
+                    <thead class="thead-ight">
+                        <tr>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Email</th>
+                            <th>Days Allowed</th>
+                            <th>Days Approved</th>
+                            <th>Work From Home</th>
+                            <th>Days Remaining</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
+                                        <img src="assets/img/employees/employee-01.jpg" alt="img">
+                                    </a>
+                                    <div class="ms-2">
+                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">John Carter</a></h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge badge-soft-success">Active</span></td>
+                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
+                                    class="__cf_email__"
+                                    data-cfemail="375d585f5977524f565a475b521954585a">[email&#160;protected]</a></td>
+                            <td>12</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
+                                        <img src="assets/img/employees/employee-02.jpg" alt="img">
+                                    </a>
+                                    <div class="ms-2">
+                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Sophia White</a></h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge badge-soft-success">Active</span></td>
+                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
+                                    class="__cf_email__"
+                                    data-cfemail="51223e21393830113429303c213d347f323e3c">[email&#160;protected]</a>
+                            </td>
+                            <td>12</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>09</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
+                                        <img src="assets/img/employees/employee-03.jpg" alt="img">
+                                    </a>
+                                    <div class="ms-2">
+                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Michael Johnson</a></h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge badge-soft-success">Active</span></td>
+                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
+                                    class="__cf_email__"
+                                    data-cfemail="7b161218131a1e173b1e031a160b171e55181416">[email&#160;protected]</a>
+                            </td>
+                            <td>12</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>11</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
+                                        <img src="assets/img/employees/employee-04.jpg" alt="img">
+                                    </a>
+                                    <div class="ms-2">
+                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Emily Clark</a></h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge badge-soft-success">Active</span></td>
+                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
+                                    class="__cf_email__"
+                                    data-cfemail="7e1b131712073e1b061f130e121b501d1113">[email&#160;protected]</a></td>
+                            <td>12</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td>08</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
+                                        <img src="assets/img/employees/employee-05.jpg" alt="img">
+                                    </a>
+                                    <div class="ms-2">
+                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">David Anderson</a></h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge badge-soft-success">Active</span></td>
+                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
+                                    class="__cf_email__"
+                                    data-cfemail="fe9a9f88979abe9b869f938e929bd09d9193">[email&#160;protected]</a></td>
+                            <td>12</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
+                                        <img src="assets/img/employees/employee-06.jpg" alt="img">
+                                    </a>
+                                    <div class="ms-2">
+                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Olivia Haris</a></h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge badge-soft-success">Active</span></td>
+                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
+                                    class="__cf_email__"
+                                    data-cfemail="f39c9f9a859a92b3968b929e839f96dd909c9e">[email&#160;protected]</a>
+                            </td>
+                            <td>12</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td>08</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
+                                        <img src="assets/img/employees/employee-07.jpg" alt="img">
+                                    </a>
+                                    <div class="ms-2">
+                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Robert Thomas</a></h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge badge-soft-success">Active</span></td>
+                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
+                                    class="__cf_email__"
+                                    data-cfemail="fe8c919c9b8c8abe9b869f938e929bd09d9193">[email&#160;protected]</a>
+                            </td>
+                            <td>12</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>11</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
+                                        <img src="assets/img/employees/employee-08.jpg" alt="img">
+                                    </a>
+                                    <div class="ms-2">
+                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Emma Lewis</a></h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge badge-soft-success">Active</span></td>
+                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
+                                    class="__cf_email__"
+                                    data-cfemail="a7c2cacac6e7c2dfc6cad7cbc289c4c8ca">[email&#160;protected]</a></td>
+                            <td>12</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
+                                        <img src="assets/img/employees/employee-09.jpg" alt="img">
+                                    </a>
+                                    <div class="ms-2">
+                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Daniel Martinz</a></h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge badge-soft-success">Active</span></td>
+                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
+                                    class="__cf_email__"
+                                    data-cfemail="fc989d92959990bc99849d918c9099d29f9391">[email&#160;protected]</a>
+                            </td>
+                            <td>12</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>09</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
+                                        <img src="assets/img/employees/employee-10.jpg" alt="img">
+                                    </a>
+                                    <div class="ms-2">
+                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Amelia Curr</a></h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge badge-soft-success">Active</span></td>
+                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
+                                    class="__cf_email__"
+                                    data-cfemail="34555951585d5574514c55594458511a575b59">[email&#160;protected]</a>
+                            </td>
+                            <td>12</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <!-- End Content -->
+
+        <!-- Footer Start -->
+        <div
+            class="footer d-flex align-items-center justify-content-between flex-column flex-sm-row row-gap-2 border-top py-2 px-3">
+            <p class="text-dark mb-0">2025 &copy; <a href="javascript:void(0);" class="link-primary">Dleo HR</a>, All
+                Rights Reserved</p>
+            <p class="text-dark mb-0">Design & Developed by <a href="https://dreamstechnologies.com/" target="_blank"
+                    class="link-primary">Dreams Technologies</a></p>
+        </div>
+        <!-- Footer End -->
+
+    </div>
+
+    <!-- ========================
+			End Page Content
+		========================= -->
+
+</div>

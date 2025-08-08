@@ -1,0 +1,282 @@
+<app-nav-bar></app-nav-bar>
+<!-- Begin Wrapper -->
+<div class="main-wrapper">
+    <div class="page-wrapper">
+
+        <!-- Start Content -->
+        <div class="content">
+
+            <!-- start row -->
+            <div class="row">
+
+                <div class="col-lg-10 mx-auto">
+                    <div>
+                        <h6 class="mb-3 fs-14"><a href="employees.html"><i
+                                    class="ti ti-arrow-left me-1"></i>Employees</a></h6>
+                        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+                            <div class="card rounded-0">
+                                <div class="card-header">
+                                    <h6 class="fw-bold mb-0">Basic Details</h6>
+                                </div>
+                                <div class="card-body">
+
+                                    <div>
+                                        <label class="form-label">Image</label>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div
+                                                class="avatar avatar-xxl border border-dashed bg-light me-3 flex-shrink-0">
+                                                <i class="ti ti-photo text-primary"></i>
+                                            </div>
+                                            <div class="d-inline-flex flex-column align-items-start">
+                                                <div
+                                                    class="drag-upload-btn btn btn-sm btn-primary position-relative mb-2">
+                                                    <i class="ti ti-photo me-1"></i>Upload Image
+                                                    <input type="file" class="form-control image-sign" multiple>
+                                                </div>
+                                                <span class="text-dark fs-12">JPG or PNG format, not exceeding
+                                                    5MB.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">First Name <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" formControlName="firstname">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Last Name <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" formControlName="lastName">
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Email <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="email" class="form-control" formControlName="email">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="customCheck1"
+                                                    formControlName="inviteEmail">
+                                                <label class="form-check-label fw-normal" for="customCheck1">
+                                                    Send them an invite email so they can log in immediately
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="card rounded-0">
+                                <div class="card-header">
+                                    <h6 class="fw-bold mb-0">Employment Details</h6>
+                                </div>
+                                <div class="card-body pb-0">
+
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Country of Employment <span
+                                                        class="text-danger">*</span></label>
+                                                <select class="select" formControlName="countryOfEmployment">
+                                                    <option value="">Select</option>
+                                                    <option value="USA">United States of America</option>
+                                                    <option value="Canada">Canada</option>
+                                                    <option value="Germany">Germany</option>
+                                                    <option value="France">France</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Start Date <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="input-group w-auto input-group-flat">
+                                                    <input type="text" class="form-control" data-provider="flatpickr"
+                                                        data-date-format="d M, Y" placeholder="dd/mm/yyyy"
+                                                        formControlName="joiningDate">
+                                                    <span class="input-group-text">
+                                                        <i class="ti ti-calendar"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Job Title <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" formControlName="position">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Employment Type <span
+                                                        class="text-danger">*</span></label>
+                                                <select class="select" formControlName="employmentType">
+                                                    <option value="">Select</option>
+                                                    <option value="Permanent">Permanent</option>
+                                                    <option value="Intern">Intern</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="card rounded-0">
+                                <div class="card-header">
+                                    <h6 class="fw-bold mb-0">Teams and Offices</h6>
+                                </div>
+                                <div class="card-body pb-0">
+
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Teams <span
+                                                        class="text-danger">*</span></label>
+                                                <select class="select" formControlName="team">
+                                                    <option value="">Select</option>
+                                                    <option value="React JS">React JS</option>
+                                                    <option value="Android">Android</option>
+                                                    <option value="Testing">Testing</option>
+                                                    <option value="Business">Business</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Line Manager <span
+                                                        class="text-danger">*</span></label>
+                                                <select class="select" formControlName="lineManager">
+                                                    <option value="">Select</option>
+                                                    <option value="Braun Kelton">Braun Kelton</option>
+                                                    <option value="Sarah Michelle">Sarah Michelle</option>
+                                                    <option value="Daniel Patrick">Daniel Patrick</option>
+                                                    <option value="Emily Lauren">Emily Lauren</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Office Name <span
+                                                        class="text-danger">*</span></label>
+                                                <select class="select" formControlName="office">
+                                                    <option value="">Select</option>
+                                                    <option value="Focus Technologies">Focus Technologies</option>
+                                                    <option value="Prime Wave Solutions">Prime Wave Solutions</option>
+                                                    <option value="Nextivity Solutions">Nextivity Solutions</option>
+                                                    <option value="Micronest Technologies">Micronest Technologies
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="card rounded-0">
+                                <div class="card-header">
+                                    <h6 class="fw-bold mb-0">Salary Details</h6>
+                                </div>
+                                <div class="card-body pb-0">
+
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Currency <span
+                                                        class="text-danger">*</span></label>
+                                                <select class="select" formControlName="currency">
+                                                    <option value="">Select</option>
+                                                    <option value="$">$</option>
+                                                    <option value="€">€</option>
+                                                    <option value="£">£</option>
+                                                    <option value="¥">¥</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Amount <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" formControlName="salary">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Frequency <span
+                                                        class="text-danger">*</span></label>
+                                                <select class="select" formControlName="frequency">
+                                                    <option value="">Select</option>
+                                                    <option value="Monthly">Monthly</option>
+                                                    <option value="Annualy">Annualy</option>
+                                                    <option value="Weekly">Weekly</option>
+                                                    <option value="Daily">Daily</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-end">
+                                <button type="button" class="btn btn-light me-2" (click)="onCancel()">Cancel</button>
+                                <button type="submit" class="btn btn-primary">
+                                    {{ employeeId ? 'Update Employee' : 'Add Employee' }}
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div> <!-- end col -->
+
+            </div>
+            <!-- end row -->
+
+        </div>
+        <!-- End Content -->
+
+        <!-- Footer Start -->
+        <div
+            class="footer d-flex align-items-center justify-content-between flex-column flex-sm-row row-gap-2 border-top py-2 px-3">
+            <p class="text-dark mb-0">2025 &copy; <a href="javascript:void(0);" class="link-primary">Dleo HR</a>, All
+                Rights Reserved</p>
+            <p class="text-dark mb-0">Design & Developed by <a href="https://dreamstechnologies.com/" target="_blank"
+                    class="link-primary">Dreams Technologies</a></p>
+        </div>
+        <!-- Footer End -->
+
+    </div>

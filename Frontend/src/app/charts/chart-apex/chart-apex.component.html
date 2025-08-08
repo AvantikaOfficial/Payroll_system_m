@@ -1,0 +1,856 @@
+<head>
+
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description"
+        content="Dleohr is a clean and modern human resource management admin dashboard template which is based on HTML 5, Bootstrap 5. Try Demo and Buy Now!">
+    <meta name="keywords"
+        content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
+    <title>Chart apex | Dleohr</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dreams Technologies">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+
+    <!-- Apple Icon -->
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+
+    <!-- Theme Script js -->
+    <script src="assets/js/theme-script.js" type="3bd60746f3759b7a53e7346f-text/javascript"></script>
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
+
+    <!-- Tabler Icon CSS -->
+    <!-- <link rel="stylesheet" href="assets/plugins/tabler-icons/tabler-icons.min.css"> -->
+
+    <!-- Simplebar CSS -->
+    <!-- <link rel="stylesheet" href="assets/plugins/simplebar/simplebar.min.css"> -->
+
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+
+</head>
+<!-- Begin Wrapper -->
+<div class="main-wrapper">
+
+    <!-- Topbar Start -->
+    <header class="navbar-header">
+        <div class="page-container topbar-menu">
+            <div class="d-flex align-items-center gap-2">
+
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+
+                    <!-- Logo Normal -->
+                    <span class="logo-light">
+                        <span class="logo-lg"><img src="assets/img/logo.svg" alt="logo"></span>
+                        <span class="logo-sm"><img src="assets/img/logo-small.svg" alt="small logo"></span>
+                    </span>
+
+                    <!-- Logo Dark -->
+                    <span class="logo-dark">
+                        <span class="logo-lg"><img src="assets/img/logo-white.svg" alt="dark logo"></span>
+                    </span>
+                </a>
+
+                <!-- Sidebar Mobile Button -->
+                <a id="mobile_btn" class="mobile-btn" href="#sidebar">
+                    <i class="ti ti-menu-deep fs-24"></i>
+                </a>
+
+                <button class="sidenav-toggle-btn btn p-0" id="toggle_btn2">
+                    <i class="ti ti-chevron-left-pipe"></i>
+                </button>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <!-- Search for Mobile -->
+                <div class="header-item d-flex d-lg-none me-2">
+                    <button class="topbar-link btn btn-icon" data-bs-toggle="modal" data-bs-target="#searchModal"
+                        type="button">
+                        <i class="ti ti-search fs-16"></i>
+                    </button>
+                </div>
+                <!-- Full Screen -->
+                <div class="header-item">
+                    <div class="me-2">
+                        <a href="javascript:void(0);" class="btn topbar-link" id="btnFullscreen"><i
+                                class="ti ti-maximize fs-16"></i></a>
+                    </div>
+                </div>
+                <!-- Light/Dark Mode Button -->
+                <div class="header-item d-none d-sm-flex me-2">
+                    <button class="topbar-link btn btn-icon topbar-link" id="light-dark-mode" type="button">
+                        <i class="ti ti-moon fs-16"></i>
+                    </button>
+                </div>
+                <!-- Calendar -->
+                <div class="header-item">
+                    <div class="me-2">
+                        <a href="report-calendar.html" class="btn topbar-link"><i
+                                class="ti ti-calendar-star fs-16"></i></a>
+                    </div>
+                </div>
+                <!-- Notification Dropdown -->
+                <div class="header-item">
+                    <div class="dropdown me-2">
+
+                        <button class="topbar-link btn btn-icon topbar-link dropdown-toggle drop-arrow-none"
+                            data-bs-toggle="dropdown" data-bs-offset="0,24" type="button" aria-haspopup="false"
+                            aria-expanded="false">
+                            <i class="ti ti-bell fs-16 animate-ring fs-16"></i>
+                            <span class="notification-badge"></span>
+                        </button>
+
+                        <div class="dropdown-menu p-0 dropdown-menu-end dropdown-menu-lg" style="min-height: 300px;">
+
+                            <div class="p-2 border-bottom">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h6 class="m-0 fs-16 fw-semibold"> Notifications</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Notification Body -->
+                            <div class="notification-body position-relative z-2 rounded-0" data-simplebar>
+
+                                <!-- Item-->
+                                <div class="dropdown-item notification-item py-3 text-wrap border-bottom"
+                                    id="notification-1">
+                                    <div class="d-flex">
+                                        <div class="me-2 position-relative flex-shrink-0">
+                                            <img src="assets/img/users/avatar-2.jpg" class="avatar-md rounded-circle"
+                                                alt="">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <p class="mb-0 fw-medium text-dark">Daniel Martinz</p>
+                                            <p class="mb-1 text-wrap">
+                                                <span class="fw-medium text-dark">Daniel Martinz</span> equested Sick
+                                                Leave from May 28 2025 to May 29 2025
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="fs-12"><i class="ti ti-clock me-1"></i>4 min ago</span>
+                                                <div
+                                                    class="notification-action d-flex align-items-center float-end gap-2">
+                                                    <a href="javascript:void(0);"
+                                                        class="notification-read rounded-circle bg-danger"
+                                                        data-bs-toggle="tooltip" title=""
+                                                        data-bs-original-title="Make as Read"
+                                                        aria-label="Make as Read"></a>
+                                                    <button class="btn rounded-circle p-0"
+                                                        data-dismissible="#notification-1">
+                                                        <i class="ti ti-x"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Item-->
+                                <div class="dropdown-item notification-item py-3 text-wrap border-bottom"
+                                    id="notification-2">
+                                    <div class="d-flex">
+                                        <div class="me-2 position-relative flex-shrink-0">
+                                            <img src="assets/img/users/user-02.jpg" class="avatar-md rounded-circle"
+                                                alt="">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <p class="mb-0 fw-medium text-dark">Emily Clark</p>
+                                            <p class="mb-1 text-wrap">
+                                                Leave for <span class="fw-medium text-dark"> Emily Clark</span> has been
+                                                approved.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="fs-12"><i class="ti ti-clock me-1"></i>8 min ago</span>
+                                                <div
+                                                    class="notification-action d-flex align-items-center float-end gap-2">
+                                                    <a href="javascript:void(0);"
+                                                        class="notification-read rounded-circle bg-danger"
+                                                        data-bs-toggle="tooltip" title=""
+                                                        data-bs-original-title="Make as Read"
+                                                        aria-label="Make as Read"></a>
+                                                    <button class="btn rounded-circle p-0"
+                                                        data-dismissible="#notification-2">
+                                                        <i class="ti ti-x"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Item-->
+                                <div class="dropdown-item notification-item py-3 text-wrap border-bottom"
+                                    id="notification-3">
+                                    <div class="d-flex">
+                                        <div class="me-2 position-relative flex-shrink-0">
+                                            <img src="assets/img/users/user-04.jpg" class="avatar-md rounded-circle"
+                                                alt="">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <p class="mb-0 fw-medium text-dark"> David</p>
+                                            <p class="mb-1 text-wrap">
+                                                Leave request from <span class="fw-medium text-dark">David
+                                                    Anderson</span>has been rejected.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="fs-12"><i class="ti ti-clock me-1"></i>15 min ago</span>
+                                                <div
+                                                    class="notification-action d-flex align-items-center float-end gap-2">
+                                                    <a href="javascript:void(0);"
+                                                        class="notification-read rounded-circle bg-danger"
+                                                        data-bs-toggle="tooltip" title=""
+                                                        data-bs-original-title="Make as Read"
+                                                        aria-label="Make as Read"></a>
+                                                    <button class="btn rounded-circle p-0"
+                                                        data-dismissible="#notification-3">
+                                                        <i class="ti ti-x"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Item-->
+                                <div class="dropdown-item notification-item py-3 text-wrap" id="notification-4">
+                                    <div class="d-flex">
+                                        <div class="me-2 position-relative flex-shrink-0">
+                                            <img src="assets/img/users/user-24.jpg" class="avatar-md rounded-circle"
+                                                alt="">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <p class="mb-0 fw-medium text-dark">Ann McClure</p>
+                                            <p class="mb-1 text-wrap">
+                                                cancelled her appointment scheduled for <span
+                                                    class="fw-medium text-dark">February 5, 2024</span>
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="fs-12"><i class="ti ti-clock me-1"></i>20 min ago</span>
+                                                <div
+                                                    class="notification-action d-flex align-items-center float-end gap-2">
+                                                    <a href="javascript:void(0);"
+                                                        class="notification-read rounded-circle bg-danger"
+                                                        data-bs-toggle="tooltip" title=""
+                                                        data-bs-original-title="Make as Read"
+                                                        aria-label="Make as Read"></a>
+                                                    <button class="btn rounded-circle p-0"
+                                                        data-dismissible="#notification-4">
+                                                        <i class="ti ti-x"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- View All-->
+                            <div class="p-2 rounded-bottom border-top text-center">
+                                <a href="notifications.html" class="text-center text-decoration-underline fs-14 mb-0">
+                                    View All Notifications
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Settings -->
+                <div class="header-item">
+                    <!-- <div>
+                            <a href="settings.html" class="btn topbar-link"><i class="ti ti-settings fs-16"></i></a>
+                        </div> -->
+                    <div class="header-item dropdown">
+                        <button class="btn topbar-link dropdown-toggle" type="button" id="settingsDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="ti ti-settings fs-16"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow mt-2" aria-labelledby="settingsDropdown"
+                            style="min-width: 220px;">
+
+                            <span class="text-center p-3 border-bottom profile-header d-block">
+                                <img src="https://i.pravatar.cc/60?img=12" alt="User" class="rounded-circle mb-2"
+                                    width="60" height="60">
+                                <div class="fw-semibold">Joseph Smith</div>
+                                <small class="text-muted">Administrator</small>
+                            </span>
+                            <span>
+                                <hr class="dropdown-divider">
+                            </span>
+
+                            <span><a class="dropdown-item d-block" href="employee-dashboard.html"><i
+                                        class="ti ti-user me-2"></i> Profile</a></span>
+                            <span><a class="dropdown-item d-block" href="lock-screen.html"><i
+                                        class="ti ti-lock me-2"></i>
+                                    Lock Screen</a></span>
+                            <span><a class="dropdown-item text-danger d-block" href="login.html"><i
+                                        class="ti ti-logout me-2"></i> Logout</a></span>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!-- Topbar End -->
+
+<!-- Search Modal -->
+<div class="modal fade" id="searchModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-transparent">
+            <div class="card shadow-none mb-0">
+                <div class="px-3 py-2 d-flex flex-row align-items-center" id="search-top">
+                    <i class="ti ti-search fs-22"></i>
+                    <input type="search" class="form-control border-0" placeholder="Search">
+                    <button type="button" class="btn p-0" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="ti ti-x fs-22"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sidenav Menu Start -->
+<div class="sidebar" id="sidebar">
+
+    <!-- Start Logo -->
+    <div class="sidebar-logo">
+        <div>
+            <!-- Logo Normal -->
+            <a href="index.html" class="logo logo-normal">
+                <img src="assets/img/logo.svg" alt="Logo">
+            </a>
+
+            <!-- Logo Small -->
+            <a href="index.html" class="logo-small">
+                <img src="assets/img/logo-small.svg" alt="Logo">
+            </a>
+
+            <!-- Logo Dark -->
+            <a href="index.html" class="dark-logo">
+                <img src="assets/img/logo-white.svg" alt="Logo">
+            </a>
+        </div>
+        <button class="sidenav-toggle-btn btn p-0" id="toggle_btn">
+            <i class="ti ti-chevron-left-pipe"></i>
+        </button>
+
+        <!-- Sidebar Menu Close -->
+        <button class="sidebar-close">
+            <i class="ti ti-x align-middle"></i>
+        </button>
+    </div>
+    <!-- End Logo -->
+
+    <!-- Sidenav Menu -->
+    <div class="sidebar-inner" data-simplebar>
+        <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+                <li class="menu-title"><span>Main Menu</span></li>
+                <li>
+                    <ul>
+                        <li>
+                            <a href="index.html" class="active">
+                                <i class="ti ti-layout-dashboard"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-apps"></i><span>Applications</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="chat.html">Chat</a></li>
+                                <li class="submenu submenu-two">
+                                    <a href="#">Calls<span class="menu-arrow inside-submenu"></span></a>
+                                    <ul>
+                                        <li><a href="voice-call.html">Voice Call</a></li>
+                                        <li><a href="video-call.html">Video Call</a></li>
+                                        <li><a href="outgoing-call.html">Outgoing Call</a></li>
+                                        <li><a href="incoming-call.html">Incoming Call</a></li>
+                                        <li><a href="call-history.html">Call History</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="calendar.html">Calendar</a></li>
+                                <li><a href="contacts.html">Contacts</a></li>
+                                <li><a href="email.html">Email</a></li>
+                                <li class="submenu submenu-two">
+                                    <a href="#">Invoices<span class="menu-arrow inside-submenu"></span></a>
+                                    <ul>
+                                        <li><a href="invoice.html">Invoices</a></li>
+                                        <li><a href="invoice-details.html">Invoice Details</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="todo.html">To Do</a></li>
+                                <li><a href="notes.html">Notes</a></li>
+                                <li><a href="kanban-view.html">Kanban Board</a></li>
+                                <li><a href="file-manager.html">File Manager</a></li>
+                                <li><a href="social-feed.html">Social Feed</a></li>
+                                <li><a href="search-list.html">Search Result</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-title"><span>Peoples & Teams</span></li>
+                <li>
+                    <ul>
+                        <li>
+                            <a href="companies.html">
+                                <i class="ti ti-building-community"></i><span>Companies</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="employees.html">
+                                <i class="ti ti-users-group"></i><span>Employee</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="leaves.html">
+                                <i class="ti ti-calendar-star"></i><span>Leaves</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="reviews.html">
+                                <i class="ti ti-user-bolt"></i><span>Reviews</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-title"><span>Utilities & Reports</span></li>
+                <li>
+                    <ul>
+                        <li>
+                            <a href="report-calendar.html">
+                                <i class="ti ti-calendar-event"></i><span>Calendar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="team-report.html">
+                                <i class="ti ti-report"></i><span>Reports</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manage.html">
+                                <i class="ti ti-settings-2"></i><span>Manage</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-title"><span>Settings</span></li>
+                <li>
+                    <ul>
+                        <li>
+                            <a href="settings.html">
+                                <i class="ti ti-settings"></i><span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-title"><span>Authentication</span></li>
+                <li>
+                    <ul>
+                        <li>
+                            <a href="login.html">
+                                <i class="ti ti-login"></i><span>Login</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="register.html">
+                                <i class="ti ti-report"></i><span>Register</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="forgot-password.html">
+                                <i class="ti ti-lock-exclamation"></i><span>Forgot Password</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="reset-password.html">
+                                <i class="ti ti-restore"></i><span>Reset Password</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="email-verification.html">
+                                <i class="ti ti-mail-check"></i><span>Email Verification</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="two-step-verification.html">
+                                <i class="ti ti-discount-check"></i><span>2 Step Verification</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lock-screen.html">
+                                <i class="ti ti-lock-square-rounded"></i><span>Lock Screen</span>
+                            </a>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-exclamation-mark-off"></i><span>Error Pages</span><span
+                                    class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="error-404.html">404 Error</a></li>
+                                <li><a href="error-500.html">500 Error</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-title"><span>UI Interface</span></li>
+                <li>
+                    <ul>
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-chart-pie"></i><span>Base UI</span><span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="ui-accordion.html">Accordion</a></li>
+                                <li><a href="ui-alerts.html">Alerts</a></li>
+                                <li><a href="ui-avatar.html">Avatar</a></li>
+                                <li><a href="ui-badges.html">Badges</a></li>
+                                <li><a href="ui-breadcrumb.html">Breadcrumb</a></li>
+                                <li><a href="ui-buttons.html">Buttons</a></li>
+                                <li><a href="ui-buttons-group.html">Button Group</a></li>
+                                <li><a href="ui-cards.html">Card</a></li>
+                                <li><a href="ui-carousel.html">Carousel</a></li>
+                                <li><a href="ui-collapse.html">Collapse</a></li>
+                                <li><a href="ui-dropdowns.html">Dropdowns</a></li>
+                                <li><a href="ui-ratio.html">Ratio</a></li>
+                                <li><a href="ui-grid.html">Grid</a></li>
+                                <li><a href="ui-images.html">Images</a></li>
+                                <li><a href="ui-links.html">Links</a></li>
+                                <li><a href="ui-list-group.html">List Group</a></li>
+                                <li><a href="ui-modals.html">Modals</a></li>
+                                <li><a href="ui-offcanvas.html">Offcanvas</a></li>
+                                <li><a href="ui-pagination.html">Pagination</a></li>
+                                <li><a href="ui-placeholders.html">Placeholders</a></li>
+                                <li><a href="ui-popovers.html">Popovers</a></li>
+                                <li><a href="ui-progress.html">Progress</a></li>
+                                <li><a href="ui-scrollspy.html">Scrollspy</a></li>
+                                <li><a href="ui-spinner.html">Spinner</a></li>
+                                <li><a href="ui-nav-tabs.html">Tabs</a></li>
+                                <li><a href="ui-toasts.html">Toasts</a></li>
+                                <li><a href="ui-tooltips.html">Tooltips</a></li>
+                                <li><a href="ui-typography.html">Typography</a></li>
+                                <li><a href="ui-utilities.html">Utilities</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-radar"></i><span>Advanced UI</span><span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="extended-dragula.html">Dragula</a></li>
+                                <li><a href="ui-clipboard.html">Clipboard</a></li>
+                                <li><a href="ui-rangeslider.html">Range Slider</a></li>
+                                <li><a href="ui-sweetalerts.html">Sweet Alerts</a></li>
+                                <li><a href="ui-lightbox.html">Lightbox</a></li>
+                                <li><a href="ui-rating.html">Rating</a></li>
+                                <li><a href="ui-scrollbar.html">Scrollbar</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-forms"></i><span>Forms</span><span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li class="submenu submenu-two">
+                                    <a href="javascript:void(0);">Form Elements<span
+                                            class="menu-arrow inside-submenu"></span></a>
+                                    <ul>
+                                        <li><a href="form-basic-inputs.html">Basic Inputs</a></li>
+                                        <li><a href="form-checkbox-radios.html">Checkbox & Radios</a></li>
+                                        <li><a href="form-input-groups.html">Input Groups</a></li>
+                                        <li><a href="form-grid-gutters.html">Grid & Gutters</a></li>
+                                        <li><a href="form-mask.html">Input Masks</a></li>
+                                        <li><a href="form-fileupload.html">File Uploads</a></li>
+                                    </ul>
+                                </li>
+                                <li class="submenu submenu-two">
+                                    <a href="javascript:void(0);">Layouts<span
+                                            class="menu-arrow inside-submenu"></span></a>
+                                    <ul>
+                                        <li><a href="form-horizontal.html">Horizontal Form</a></li>
+                                        <li><a href="form-vertical.html">Vertical Form</a></li>
+                                        <li><a href="form-floating-labels.html">Floating Labels</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="form-validation.html">Form Validation</a></li>
+                                <li><a href="form-select2.html">Select2</a></li>
+                                <li><a href="form-wizard.html">Form Wizard</a></li>
+                                <li><a href="form-pickers.html">Form Picker</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-table-row"></i><span>Tables</span><span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="tables-basic.html">Basic Tables </a></li>
+                                <li><a href="data-tables.html">Data Table </a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);" class="active subdrop">
+                                <i class="ti ti-chart-donut"></i>
+                                <span>Charts</span><span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="chart-apex.html" class="active">Apex Charts</a></li>
+                                <li><a href="chart-c3.html">Chart C3</a></li>
+                                <li><a href="chart-js.html">Chart Js</a></li>
+                                <li><a href="chart-morris.html">Morris Charts</a></li>
+                                <li><a href="chart-flot.html">Flot Charts</a></li>
+                                <li><a href="chart-peity.html">Peity Charts</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-icons"></i>
+                                <span>Icons</span><span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="icon-fontawesome.html">Fontawesome Icons</a></li>
+                                <li><a href="icon-tabler.html">Tabler Icons</a></li>
+                                <li><a href="icon-bootstrap.html">Bootstrap Icons</a></li>
+                                <li><a href="icon-remix.html">Remix Icons</a></li>
+                                <li><a href="icon-feather.html">Feather Icons</a></li>
+                                <li><a href="icon-ionic.html">Ionic Icons</a></li>
+                                <li><a href="icon-material.html">Material Icons</a></li>
+                                <li><a href="icon-pe7.html">Pe7 Icons</a></li>
+                                <li><a href="icon-simpleline.html">Simpleline Icons</a></li>
+                                <li><a href="icon-themify.html">Themify Icons</a></li>
+                                <li><a href="icon-weather.html">Weather Icons</a></li>
+                                <li><a href="icon-typicons.html">Typicons Icons</a></li>
+                                <li><a href="icon-flag.html">Flag Icons</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-title"><span>Help</span></li>
+                <li>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);"><i class="ti ti-file-dots"></i><span>Documentation</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><i class="ti ti-status-change"></i><span>Changelog</span><span
+                                    class="badge bg-danger ms-2 badge-md rounded-2 fs-12 fw-medium">v2.0</span></a>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-versions"></i><span>Multi Level</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="javascript:void(0);">Multilevel 1</a></li>
+                                <li class="submenu submenu-two">
+                                    <a href="javascript:void(0);">Multilevel 2<span
+                                            class="menu-arrow inside-submenu"></span></a>
+                                    <ul>
+                                        <li><a href="javascript:void(0);">Multilevel 2.1</a></li>
+                                        <li class="submenu submenu-two submenu-three">
+                                            <a href="javascript:void(0);">Multilevel 2.2<span
+                                                    class="menu-arrow inside-submenu inside-submenu-two"></span></a>
+                                            <ul>
+                                                <li><a href="javascript:void(0);">Multilevel 2.2.1</a></li>
+                                                <li><a href="javascript:void(0);">Multilevel 2.2.2</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0);">Multilevel 3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-footer">
+            <div class="bg-light p-2 rounded d-flex align-items-center">
+                <a href="#" class="avatar avatar-md me-2"><img src="assets/img/users/avatar-2.jpg" alt=""></a>
+                <div>
+                    <h6 class="fs-14 fw-semibold mb-1"><a href="#">Joseph Smith</a></h6>
+                    <p class="fs-13 mb-0"><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
+                            class="__cf_email__"
+                            data-cfemail="3f5e5b5256517f5a475e524f535a115c5052">[email&#160;protected]</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 pt-0">
+            <a href="login.html" class="btn btn-danger w-100"><i class="ti ti-logout-2 me-1"></i>Logout</a>
+        </div>
+    </div>
+
+</div>
+<!-- Sidenav Menu End -->
+
+<!-- ========================
+			Start Page Content
+		========================= -->
+
+<div class="page-wrapper">
+
+    <!-- Start Content -->
+    <div class="content pb-0">
+
+        <!-- Page Header -->
+        <div class="d-flex align-items-sm-center flex-sm-row flex-column gap-2 pb-3">
+            <div class="flex-grow-1">
+                <h5 class="fw-bold mb-0">Apex Chart</h5>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-divide p-0 mb-0">
+                    <li class="breadcrumb-item d-flex align-items-center"><a href="index.html"><i
+                                class="ti ti-home me-1"></i>Home</a></li>
+                    <li class="breadcrumb-item d-flex align-items-center"><a href="javascript:void(0);">Charts</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Apex Chart</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- End Page Header -->
+
+        <!-- start row -->
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Apex Simple</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="s-line" class="chart-set"></div>
+                    </div><!-- end card body -->
+                </div><!-- end card -->
+            </div><!-- end col -->
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Area Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="s-line-area" class="chart-set"></div>
+                    </div><!-- end card body -->
+                </div><!-- end card -->
+            </div><!-- end col -->
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Column Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="s-col-chart" class="chart-set"></div>
+                    </div><!-- end card body -->
+                </div><!-- end card -->
+            </div><!-- end col -->
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Column Stacked Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="s-col-stacked" class="chart-set"></div>
+                    </div><!-- end card body -->
+                </div><!-- end card -->
+            </div><!-- end col -->
+
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Bar Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="s-bar" class="chart-set"></div>
+                    </div><!-- end card body -->
+                </div><!-- end card -->
+            </div><!-- end col -->
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Mixed Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="mixed-chart" class="chart-set"></div>
+                    </div><!-- end card body -->
+                </div><!-- end card -->
+            </div><!-- end col -->
+
+            <div class="col-md-6 d-flex">
+                <div class="card w-100">
+                    <div class="card-header">
+                        <h5 class="card-title">Donut Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="donut-chart" class="chart-set"></div>
+                    </div><!-- end card body -->
+                </div><!-- end card -->
+            </div><!-- end col -->
+
+            <div class="col-md-6 d-flex">
+                <div class="card w-100">
+                    <div class="card-header">
+                        <h5 class="card-title">Radial Chart</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="radial-chart" class="chart-set"></div>
+                    </div><!-- end card body -->
+                </div><!-- end card -->
+            </div><!-- end col -->
+
+        </div>
+        <!-- end row -->
+
+    </div>
+    <!-- End Content -->
+
+    <!-- Footer Start -->
+    <div
+        class="footer d-flex align-items-center justify-content-between flex-column flex-sm-row row-gap-2 border-top py-2 px-3">
+        <p class="text-dark mb-0">2025 &copy; <a href="javascript:void(0);" class="link-primary">Dleo HR</a>, All
+            Rights Reserved</p>
+        <p class="text-dark mb-0">Design & Developed by <a href="https://dreamstechnologies.com/" target="_blank"
+                class="link-primary">Dreams Technologies</a></p>
+    </div>
+    <!-- Footer End -->
+
+</div>
+
+<!-- ========================
+			End Page Content
+		========================= -->
+
+</div>
+<!-- End Wrapper -->
+<!-- jQuery -->
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="assets/js/jquery-3.7.1.min.js" type="3bd60746f3759b7a53e7346f-text/javascript"></script>
+
+<!-- Simplebar JS -->
+<script src="assets/plugins/simplebar/simplebar.min.js" type="3bd60746f3759b7a53e7346f-text/javascript"></script>
+
+<!-- Bootstrap Core JS -->
+<script src="assets/js/bootstrap.bundle.min.js" type="3bd60746f3759b7a53e7346f-text/javascript"></script>
+
+<!-- Chart JS -->
+<script src="assets/plugins/apexchart/apexcharts.min.js" type="3bd60746f3759b7a53e7346f-text/javascript"></script>
+<script src="assets/plugins/apexchart/chart-data.js" type="3bd60746f3759b7a53e7346f-text/javascript"></script>
+
+<!-- Main JS -->
+<script src="assets/js/script.js" type="3bd60746f3759b7a53e7346f-text/javascript"></script>
+
+<script src="../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+    data-cf-settings="3bd60746f3759b7a53e7346f-|49" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+    integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+    data-cf-beacon='{"rayId":"963248e1ca8bc230","version":"2025.7.0","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"3ca157e612a14eccbb30cf6db6691c29","b":1}'
+    crossorigin="anonymous"></script>
