@@ -74,7 +74,8 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     FullCalendarModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
