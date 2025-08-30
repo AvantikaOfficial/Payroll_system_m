@@ -8,8 +8,10 @@
                     <h5 class="fw-bold">Leaves</h5>
                 </div>
                 <div>
-                    <a href="javascript:void(0);" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addLeaveModal">
-<i class="ti ti-circle-plus me-1"></i>New Leave</a>
+                    <a href="javascript:void(0);" class="btn btn-primary" (click)="openAddModal()">
+                        <i class="ti ti-circle-plus me-1"></i> New Leave
+                    </a>
+
                 </div>
             </div>
             <!-- End Page Header -->
@@ -155,20 +157,31 @@
                             <td>{{ leave.start_date | date }}</td>
                             <td>{{ leave.end_date | date }}</td>
                             <td>{{ leave.days }}</td>
-                            <td>{{ leave.remaining_days }}</td>
-                            <td>{{ leave.status }}</td>
+                            <td>{{ totalLeaves - (leave?.days || 0) }}</td> <!-- ✅ safe calculation -->
+                             <td>
+                                <select class="form-select form-select-sm" [(ngModel)]="leave.status"
+                                    (change)="onStatusChange(leave)">
+                                    <option value="Pending">Pending</option>
+                                    <option value="Approved">Approved</option>
+                                    <option value="Rejected">Rejected</option>
+                                </select>
+                            </td>
+
                             <td>
-                                <button class="btn btn-sm btn-warning me-1" (click)="openEditModal(leave)">Edit</button>
+                                <button class="btn btn-sm btn-primary" (click)="openEditModal(leave)">Edit</button>
+                                &nbsp;
                                 <button class="btn btn-sm btn-danger" (click)="confirmDelete(leave.id)">Delete</button>
                             </td>
                         </tr>
+
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-<div class="modal fade" id="addLeaveModal">
-            <div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="addLeaveModal">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="page-title">
@@ -184,8 +197,9 @@
                             <div class="col-sm-12">
                                 <div class="mb-3">
                                     <label class="form-label">Employee Name <span class="text-danger">*</span></label>
-                                    <select formControlName="employee_id" class="form-select" required>
-                                        <option value="" disabled selected>Select Employee</option>
+                                    <select class="form-control" formControlName="employee_id"
+                                        (change)="onEmployeeChange($event)">
+                                        <option value="">-- Select Employee --</option>
                                         <option *ngFor="let emp of employees" [value]="emp.id">
                                             {{ emp.firstname }} {{ emp.lastName }}
                                         </option>
@@ -206,13 +220,24 @@
 
                                 </div>
                             </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Already Used Leaves</label>
+                                        <input type="text" class="form-control" [value]="usedLeaves" disabled />
+                                    </div>
 
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Remaining Leaves</label>
-                                    <input type="text" class="form-control" [value]="remainingLeaves" disabled />
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Remaining Leaves</label>
+                                        <input type="text" class="form-control" [value]="remainingLeaves" disabled />
+                                    </div>
                                 </div>
                             </div>
+
+
 
                             <div class="col-sm-6">
                                 <div class="mb-3">
@@ -271,70 +296,128 @@
             </div>
         </div>
     </div> <!-- end modal -->
-<div class="modal fade" id="addLeaveModal">
-            <div class="modal-dialog">
-            <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()" class="modal-content">
+
+    <div class="modal fade" id="addLeaveModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addLeaveModalLabel">
-                        {{ isEditMode ? 'Edit Leave' : 'Add Leave' }}
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="page-title">
+                        <h6 class="fw-bold mb-0">{{ isEditMode ? 'Edit Leave' : 'Add New Leave' }}</h6>
+                    </div>
+                    <button type="button" class="btn-close custom-btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ti ti-x"></i>
+                    </button>
                 </div>
 
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="employee" class="form-label">Employee</label>
-                        <select id="employee" formControlName="employee_id" class="form-select" required>
-                            <option value="" disabled>Select employee</option>
-                            <option *ngFor="let emp of employees" [value]="emp.id">{{ emp.firstname }} {{ emp.lastName
-                                }}</option>
-                        </select>
+                <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()">
+                    <div class="modal-body">
+                        <div class="row">
+                            <!-- Employee -->
+                            <div class="col-sm-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Employee Name <span class="text-danger">*</span></label>
+                                    <select class="form-control" formControlName="employee_id"
+                                        (change)="onEmployeeChange($event)">
+                                        <option value="">-- Select Employee --</option>
+                                        <option *ngFor="let emp of employees" [value]="emp.id">
+                                            {{ emp.firstname }} {{ emp.lastName }}
+                                        </option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <!-- Leave Type -->
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Leave Type <span class="text-danger">*</span></label>
+                                    <select formControlName="leave_type" class="form-select" required>
+                                        <option value="" disabled>Select Leave Type</option>
+                                        <option value="Annual Leave">Annual Leave</option>
+                                        <option value="Casual Leave">Casual Leave</option>
+                                        <option value="Sick Leave">Sick Leave</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Already Used / Remaining -->
+                            <div class="row mt-3">
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Already Used Leaves</label>
+                                        <input type="text" class="form-control" [value]="usedLeaves" disabled />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Remaining Leaves</label>
+                                        <input type="text" class="form-control" [value]="remainingLeaves" disabled />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dates -->
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">From <span class="text-danger">*</span></label>
+                                    <input type="date" formControlName="start_date" class="form-control" required />
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">To <span class="text-danger">*</span></label>
+                                    <input type="date" formControlName="end_date" class="form-control" required />
+                                </div>
+                            </div>
+
+                            <!-- Duration -->
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Duration <span class="text-danger">*</span></label>
+                                    <select formControlName="duration" class="form-select" required>
+                                        <option value="" disabled selected>Select Duration</option>
+                                        <option value="Full Day">Full Day</option>
+                                        <option value="First Half">First Half</option>
+                                        <option value="Second Half">Second Half</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Number of Days -->
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Number of Days Leave</label>
+                                    <input type="text" class="form-control"
+                                        [value]="leaveForm.value.start_date && leaveForm.value.end_date ? calculateDays(leaveForm.value.start_date, leaveForm.value.end_date) : ''"
+                                        disabled />
+                                </div>
+                            </div>
+
+                            <!-- Reason -->
+                            <div class="col-sm-12">
+                                <div>
+                                    <label class="form-label">Reason</label>
+                                    <textarea formControlName="reason" class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="startDate" class="form-label">Start Date</label>
-                        <input type="date" id="startDate" formControlName="start_date" class="form-control" required />
+                    <div class="modal-footer">
+                        <div class="d-flex align-items-center justify-content-end">
+                            <button type="button" class="btn me-2 btn-light" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">
+                                {{ isEditMode ? 'Update Leave' : 'Add Leave' }}
+                            </button>
+                        </div>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="endDate" class="form-label">End Date</label>
-                        <input type="date" id="endDate" formControlName="end_date" class="form-control" required />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="leaveType" class="form-label">Leave Type</label>
-                        <select formControlName="leave_type" required>
-                            <option value="" disabled>Select Leave Type</option>
-                            <option value="Annual Leave">Annual Leave</option>
-                            <option value="Casual Leave">Casual Leave</option>
-                            <option value="Sick Leave">Sick Leave</option>
-                        </select>
-
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="reason" class="form-label">Reason</label>
-                        <textarea id="reason" formControlName="reason" class="form-control"></textarea>
-                    </div>
-
-                    <!-- <div class="mb-3">
-                        <label for="status" class="form-label">Status</label>
-                        <select id="status" formControlName="status" class="form-select">
-                            <option value="pending">Pending</option>
-                            <option value="approved">Approved</option>
-                            <option value="rejected">Rejected</option>
-                        </select>
-                    </div> -->
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update Leave' : 'Add Leave'
-                        }}</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
+    
     <div class="modal fade" id="delete_modal">
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content">

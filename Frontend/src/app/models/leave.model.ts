@@ -10,4 +10,6 @@ export interface Leave {
   days?: number;
   remaining_days?: number;
   duration?: string; // <-- Add this
+  employeeName?: string;
+
 }

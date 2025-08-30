@@ -2,17 +2,14 @@
 <!-- Begin Wrapper -->
 <div class="main-wrapper">
     <div class="page-wrapper">
-
         <!-- Start Content -->
         <div class="content">
-
             <!-- start row -->
             <div class="row">
-
                 <div class="col-lg-10 mx-auto">
                     <div>
-                        <h6 class="mb-3 fs-14"><a href="employees.html"><i
-                                    class="ti ti-arrow-left me-1"></i>Employees</a></h6>
+                        <h6 class="mb-3 fs-14"><a href="employees"><i class="ti ti-arrow-left me-1"></i>Employees</a>
+                        </h6>
                         <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
 
                             <div class="card rounded-0">
@@ -25,14 +22,20 @@
                                         <label class="form-label">Image</label>
                                         <div class="d-flex align-items-center mb-3">
                                             <div
-                                                class="avatar avatar-xxl border border-dashed bg-light me-3 flex-shrink-0">
-                                                <i class="ti ti-photo text-primary"></i>
+                                                class="avatar avatar-xxl border border-dashed bg-light me-3 flex-shrink-0 d-flex align-items-center justify-content-center overflow-hidden">
+                                                <img *ngIf="imagePreview" [src]="imagePreview"
+                                                    class="img-fluid rounded-circle" alt="Preview"
+                                                    style="width: 100%; height: 100%; object-fit: cover;">
+                                                <i *ngIf="!imagePreview" class="ti ti-photo text-primary fs-24"></i>
                                             </div>
                                             <div class="d-inline-flex flex-column align-items-start">
                                                 <div
                                                     class="drag-upload-btn btn btn-sm btn-primary position-relative mb-2">
                                                     <i class="ti ti-photo me-1"></i>Upload Image
-                                                    <input type="file" class="form-control image-sign" multiple>
+                                                    <input type="file"
+                                                        class="form-control image-sign position-absolute top-0 start-0 w-100 h-100 opacity-0"
+                                                        (change)="onImageSelected($event)"
+                                                        accept="image/png, image/jpeg">
                                                 </div>
                                                 <span class="text-dark fs-12">JPG or PNG format, not exceeding
                                                     5MB.</span>
@@ -68,6 +71,42 @@
                                             </div>
                                         </div>
 
+                                        <!-- New DOB -->
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Date of Birth <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="input-group w-auto input-group-flat">
+                                                    <input type="text" class="form-control" data-provider="flatpickr"
+                                                        data-date-format="d M, Y" placeholder="dd/mm/yyyy"
+                                                        formControlName="dob">
+                                                    <span class="input-group-text">
+                                                        <i class="ti ti-calendar"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Phone Field -->
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Phone <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" formControlName="phone"
+                                                    placeholder="Enter phone number">
+                                            </div>
+                                        </div>
+
+
+                                        <!-- New Address -->
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Address <span
+                                                        class="text-danger">*</span></label>
+                                                <textarea class="form-control" rows="2" formControlName="address"
+                                                    placeholder="Enter full address"></textarea>
+                                            </div>
+                                        </div>
                                         <div class="col-md-12">
                                             <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="customCheck1"
@@ -97,10 +136,38 @@
                                                         class="text-danger">*</span></label>
                                                 <select class="select" formControlName="countryOfEmployment">
                                                     <option value="">Select</option>
-                                                    <option value="USA">United States of America</option>
-                                                    <option value="Canada">Canada</option>
-                                                    <option value="Germany">Germany</option>
+                                                    <option value="Afghanistan">Afghanistan</option>
+                                                    <option value="Albania">Albania</option>
+                                                    <option value="Algeria">Algeria</option>
+                                                    <option value="Andorra">Andorra</option>
+                                                    <option value="Angola">Angola</option>
+                                                    <option value="Argentina">Argentina</option>
+                                                    <option value="Armenia">Armenia</option>
+                                                    <option value="Australia">Australia</option>
+                                                    <option value="Austria">Austria</option>
+                                                    <option value="Azerbaijan">Azerbaijan</option>
+                                                    <option value="Bahamas">Bahamas</option>
+                                                    <option value="Bahrain">Bahrain</option>
+                                                    <option value="Bangladesh">Bangladesh</option>
+                                                    <option value="Belgium">Belgium</option>
+                                                    <option value="Bhutan">Bhutan</option>
+                                                    <option value="Brazil">Brazil</option>
+                                                    <option value="Bulgaria">Bulgaria</option>
+                                                    <option value="Cyprus">Cyprus</option>
+                                                    <option value="Czech Republic">Czech Republic</option>
+                                                    <option value="Denmark">Denmark</option>
+                                                    <option value="Dominican Republic">Dominican Republic</option>
+                                                    <option value="Ecuador">Ecuador</option>
+                                                    <option value="Egypt">Egypt</option>
+                                                    <option value="Estonia">Estonia</option>
+                                                    <option value="Ethiopia">Ethiopia</option>
+                                                    <option value="Finland">Finland</option>
                                                     <option value="France">France</option>
+                                                    <option value="Germany">Germany</option>
+                                                    <option value="Greece">Greece</option>
+                                                    <option value="Hungary">Hungary</option>
+                                                    <option value="Iceland">Iceland</option>
+                                                    <option value="India">India</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -128,17 +195,22 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Employment Type <span
-                                                        class="text-danger">*</span></label>
-                                                <select class="select" formControlName="employmentType">
-                                                    <option value="">Select</option>
-                                                    <option value="Permanent">Permanent</option>
-                                                    <option value="Intern">Intern</option>
-                                                </select>
+                                        <div class="row">
+                                            <!-- Employment Type Field -->
+                                            <div class="col-md-4">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Employment Type <span
+                                                            class="text-danger">*</span></label>
+                                                    <select class="select" formControlName="employmentType">
+                                                        <option value="">Select</option>
+                                                        <option value="Permanent">Permanent</option>
+                                                        <option value="Intern">Intern</option>
+                                                    </select>
+                                                </div>
                                             </div>
+
                                         </div>
+
 
                                     </div>
 
@@ -183,16 +255,14 @@
 
                                         <div class="col-md-4">
                                             <div class="mb-3">
-                                                <label class="form-label">Office Name <span
+                                                <label class="form-label">Department Name <span
                                                         class="text-danger">*</span></label>
                                                 <select class="select" formControlName="office">
                                                     <option value="">Select</option>
-                                                    <option value="Focus Technologies">Focus Technologies</option>
-                                                    <option value="Prime Wave Solutions">Prime Wave Solutions</option>
-                                                    <option value="Nextivity Solutions">Nextivity Solutions</option>
-                                                    <option value="Micronest Technologies">Micronest Technologies
-                                                    </option>
+                                                    <option *ngFor="let dept of departments" [value]="dept.name">{{
+                                                        dept.name }}</option>
                                                 </select>
+
                                             </div>
                                         </div>
 
@@ -206,22 +276,8 @@
                                     <h6 class="fw-bold mb-0">Salary Details</h6>
                                 </div>
                                 <div class="card-body pb-0">
-
                                     <div class="row">
 
-                                        <div class="col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Currency <span
-                                                        class="text-danger">*</span></label>
-                                                <select class="select" formControlName="currency">
-                                                    <option value="">Select</option>
-                                                    <option value="$">$</option>
-                                                    <option value="€">€</option>
-                                                    <option value="£">£</option>
-                                                    <option value="¥">¥</option>
-                                                </select>
-                                            </div>
-                                        </div>
 
                                         <div class="col-md-4">
                                             <div class="mb-3">
@@ -230,7 +286,25 @@
                                                 <input type="text" class="form-control" formControlName="salary">
                                             </div>
                                         </div>
-
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Currency <span
+                                                        class="text-danger">*</span></label>
+                                                <select class="select" formControlName="currency">
+                                                    <option value="">Select</option>
+                                                    <option value="USD">USD - United States Dollar ($)</option>
+                                                    <option value="EUR">EUR - Euro (€)</option>
+                                                    <option value="GBP">GBP - British Pound (£)</option>
+                                                    <option value="JPY">JPY - Japanese Yen (¥)</option>
+                                                    <option value="AUD">AUD - Australian Dollar (A$)</option>
+                                                    <option value="CAD">CAD - Canadian Dollar (C$)</option>
+                                                    <option value="CHF">CHF - Swiss Franc</option>
+                                                    <option value="CNY">CNY - Chinese Yuan (¥)</option>
+                                                    <option value="INR">INR - Indian Rupee (₹)</option>n>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
                                         <div class="col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Frequency <span
@@ -245,38 +319,49 @@
                                             </div>
                                         </div>
 
-                                    </div>
+                                        <!-- New Bank Details -->
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Bank Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" formControlName="bankName">
+                      </div>
+                    </div>
 
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">Bank Account No <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" formControlName="bankAccountNo">
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <label class="form-label">IFSC Code <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" formControlName="ifscCode">
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label">Bank Address <span class="text-danger">*</span></label>
+                        <textarea class="form-control" rows="2" formControlName="bankAddress"
+                          placeholder="Enter bank branch address"></textarea>
+                      </div>
+                    </div>
+
+                                    </div>
                                 </div>
                             </div>
-
                             <div class="d-flex align-items-center justify-content-end">
                                 <button type="button" class="btn btn-light me-2" (click)="onCancel()">Cancel</button>
                                 <button type="submit" class="btn btn-primary">
                                     {{ employeeId ? 'Update Employee' : 'Add Employee' }}
                                 </button>
-
                             </div>
-
                         </form>
-
                     </div>
                 </div> <!-- end col -->
-
             </div>
             <!-- end row -->
-
         </div>
-        <!-- End Content -->
-
-        <!-- Footer Start -->
-        <div
-            class="footer d-flex align-items-center justify-content-between flex-column flex-sm-row row-gap-2 border-top py-2 px-3">
-            <p class="text-dark mb-0">2025 &copy; <a href="javascript:void(0);" class="link-primary">Dleo HR</a>, All
-                Rights Reserved</p>
-            <p class="text-dark mb-0">Design & Developed by <a href="https://dreamstechnologies.com/" target="_blank"
-                    class="link-primary">Dreams Technologies</a></p>
-        </div>
-        <!-- Footer End -->
-
-    </div>
+    </div> 

@@ -1,0 +1,353 @@
+.custom-dropdown {
+  position: relative;
+}
+
+.three-dot-btn {
+  border: none;           /* border काढले */
+  background: transparent;/* background काढला */
+  padding: 5px;
+  font-size: 20px;
+  color: #555;
+  cursor: pointer;
+}
+
+.three-dot-btn:hover {
+  color: #000; /* hover effect */
+}
+
+.custom-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  min-width: 200px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  z-index: 9999;
+  display: none; /* hide by default */
+}
+
+.custom-dropdown .dropdown-menu.show {
+  display: block;
+}
+
+.custom-dropdown .dropdown-item {
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.footer-dropdown-menu {
+  position: absolute;
+  bottom: 100%; /* position above the button */
+  right: 0;     /* align to right */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  min-width: 180px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  z-index: 9999;
+}
+
+.custom-dropdown {
+  position: relative;
+}
+
+.three-dot-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  min-width: 180px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.dropdown-item {
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+.last-message-time {
+  font-size: 0.85rem;
+  color: #333; /* normal dark color */
+}
+.chat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.chat-item:hover {
+  background: #f5f5f5;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.chat-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.last-time {
+  font-size: 12px;
+  color: #888;
+}
+
+.last-message {
+  font-size: 14px;
+  color: #555;
+}
+
+.badge-container {
+  position: relative;
+}
+
+.unread-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #ff3b30;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 12px;
+  padding: 2px 6px;
+  min-width: 20px;
+  text-align: center;
+  line-height: 1;
+}
+
+.message.received {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 10px 14px;
+  border-radius: 16px;
+  display: inline-block;
+  max-width: 70%;
+  word-wrap: break-word;
+  align-self: flex-start;
+}
+.message.sent {
+  background-color: #d4edda; /* light green */
+  color: #155724;
+  padding: 10px 14px;
+  border-radius: 16px;
+  display: inline-block;
+  max-width: 70%;         /* limit max width */
+  word-wrap: break-word;  /* wrap long words */
+  align-self: flex-end;   /* align to right if using flexbox */
+}
+/* Chat message bubble */
+.msg-bubble {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 16px;
+  max-width: 70%;
+  word-break: break-word;
+  font-size: 14px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Align sent messages (from current user) to right */
+.text-end .msg-bubble {
+  background-color: #dcf8c6; /* light green */
+  align-self: flex-end;
+  text-align: left;
+}
+
+/* Align received messages (from others) to left */
+.text-start .msg-bubble {
+  background-color: #eaeaea; /* light gray */
+  align-self: flex-start;
+  text-align: left;
+}
+.msg-wrapper {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.msg-bubble {
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 70%;
+}
+
+.msg-menu {
+  position: relative;
+  margin-left: 6px;
+}
+
+.menu-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.options-popup {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 100;
+  min-width: 160px;
+}
+
+.options-popup button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 6px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.options-popup button:hover {
+  background: #f5f5f5;
+}
+.msg-wrapper {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Outgoing (You) */
+.text-end .msg-wrapper {
+  justify-content: flex-end; /* Push everything to right */
+}
+
+.text-end .msg-menu {
+  order: -1; /* Show menu after bubble (right side) */
+  margin-left: 6px;
+  margin-right: 0;
+}
+
+/* Incoming (Others) */
+.text-start .msg-wrapper {
+  justify-content: flex-start; /* Push everything to left */
+}
+
+.text-start .msg-menu {
+  order: 1; /* Menu after bubble (left side) */
+  margin-right: 6px;
+  margin-left: 0;
+}
+
+.msg-bubble {
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 70%;
+}
+/* For right-side (your) messages */
+.msg-menu.right .options-popup {
+  right: 0;
+  left: auto;
+  transform-origin: top right;
+}
+
+/* For left-side (incoming) messages */
+.msg-menu.left .options-popup {
+  left: 0;
+  right: auto;
+  transform-origin: top left;
+}
+.msg-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #555;
+}
+
+.options-popup {
+  position: absolute;
+  top: 25px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  min-width: 180px;
+  padding: 6px 0;
+  z-index: 1000;
+}
+
+/* Right-side (your messages) → dropdown opens to left */
+.msg-menu.right .options-popup {
+  right: 0;
+  transform-origin: top right;
+}
+
+/* Left-side (others’ messages) → dropdown opens to right */
+.msg-menu.left .options-popup {
+  left: 0;
+  transform-origin: top left;
+}
+
+.options-popup button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  gap: 8px;
+}
+
+.options-popup button:hover {
+  background: #f5f5f5;
+}
+.highlight-reply {
+  animation: flash 1.5s ease;
+}
+@keyframes flash {
+  0% { background-color: #fff59d; }
+  100% { background-color: transparent; }
+}

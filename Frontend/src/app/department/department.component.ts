@@ -1,23 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { Department, DepartmentService } from '../Services/Department-serives/department.service';
-declare var bootstrap: any;
+// src/app/departments/department.component.ts
 
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Department, DepartmentService } from '../Services/Department-serives/department.service';
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-department',
   templateUrl: './department.component.html',
-  styleUrls: []
+  styleUrls: ['./department.component.scss'] // optional
 })
 export class DepartmentComponent implements OnInit {
-
   departments: Department[] = [];
-  selectedDepartmentIdForDelete?: number;
-  selectedEmployeeIdForDelete: undefined;
-  router: any;
+  selectedDepartmentId: number | null = null;
 
-  constructor(private departmentService: DepartmentService) {}
+  constructor(private departmentService: DepartmentService, private router: Router) {}
 
   ngOnInit(): void {
+    const navigation = this.router.getCurrentNavigation();
+    const state = navigation?.extras?.state as { message?: string };
+
+    if (state?.message === 'added') {
+      alert('✅ Department successfully added!');
+    } else if (state?.message === 'updated') {
+      alert('✅ Department successfully updated!');
+    }
+
     this.getAllDepartments();
   }
 
@@ -27,43 +36,31 @@ export class DepartmentComponent implements OnInit {
         this.departments = data;
       },
       error: (err) => {
-        console.error('Failed to load departments:', err);
+        console.error('Error loading departments:', err);
       }
     });
   }
 
+  confirmDelete(id: number): void {
+    this.selectedDepartmentId = id;
+  }
 
+  deleteDepartment(): void {
+    if (this.selectedDepartmentId === null) return;
 
-selectedDepartmentId: number | null = null;
+    this.departmentService.deleteDepartment(this.selectedDepartmentId).subscribe({
+      next: () => {
+        this.departments = this.departments.filter(d => d.id !== this.selectedDepartmentId);
+        this.selectedDepartmentId = null;
 
-confirmDelete(id: number): void {
-  this.selectedDepartmentId = id;
-}
+        const modalCloseBtn = document.getElementById('closeDeleteModalBtn');
+        modalCloseBtn?.click();
 
-deleteDepartment(): void {
-  if (this.selectedDepartmentId === null) return;
-
-  this.departmentService.deleteDepartment(this.selectedDepartmentId).subscribe({
-    next: () => {
-      // Remove the deleted department from the local list
-      this.departments = this.departments.filter(dept => dept.id !== this.selectedDepartmentId);
-      this.selectedDepartmentId = null;
-
-      // Close modal (optional if using Bootstrap JS)
-      const closeBtn = document.getElementById('closeDeleteModalBtn');
-      closeBtn?.click();
-
-      // Optionally show success notification
-      console.log('Department deleted successfully');
-    },
-    error: (err) => {
-      alert('Error deleting department: ' + (err?.message || 'Unknown error'));
-    }
-  });
-}
-
- editDepartment(id: number): void {
-  this.router.navigate(['/add-department', id]);
-}
-
+        alert('✅ Department deleted successfully!');
+      },
+      error: (err) => {
+        alert('❌ Failed to delete department: ' + err.message);
+      }
+    });
+  }
 }

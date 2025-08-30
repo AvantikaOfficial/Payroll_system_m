@@ -1,465 +1,90 @@
 <app-nav-bar></app-nav-bar>
-<!-- Begin Wrapper -->
+
 <div class="main-wrapper">
+  <div class="page-wrapper">
+    <div class="content">
 
-    <div class="page-wrapper">
+      <!-- Report Tabs -->
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        <button class="btn btn-outline-dark" routerLink="/reports/team-report">Team Report</button>
+        <button class="btn btn-outline-dark" routerLink="/reports/leave-report">Leave Report</button>
+        <button class="btn btn-dark" routerLink="/reports/payroll-report">Payroll Report</button>
+        <button class="btn btn-outline-dark" routerLink="/reports/contact-report">Contact Report</button>
+        <button class="btn btn-outline-dark" routerLink="/reports/security-report">Security Report</button>
+        <button class="btn btn-outline-dark" routerLink="/reports/work-from-home-report">Work From Home Report</button>
+      </div>
 
-        <!-- Start Content -->
-        <div class="content">
+      <!-- Page Header -->
+      <div class="d-flex align-items-center justify-content-between flex-wrap mb-3">
+        <h5 class="fw-bold">Payroll Report</h5>
+        <button class="btn btn-primary">
+          <i class="ti ti-file-import me-1"></i> Export
+        </button>
+      </div>
 
-            <!-- Page Header -->
-            <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-3 mb-3">
-                <div class="flex-grow-1">
-                    <h5 class="fw-bold">Reports</h5>
-                </div>
-                <div class="dropdown">
-                    <a href="javascript:void(0);" class="btn btn-primary d-inline-flex align-items-center"
-                        data-bs-toggle="dropdown">
-                        <i class="ti ti-file-import me-1"></i>Export
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end p-1">
-                        <li>
-                            <a href="javascript:void(0);" class="dropdown-item rounded-1">Download as PDF</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" class="dropdown-item rounded-1">Download as Excel</a>
-                        </li>
-                    </ul>
-                </div>
+      <!-- Filters -->
+      <div class="card shadow mb-3">
+        <div class="card-body">
+          <form (ngSubmit)="applyFilters()">
+            <div class="row g-3 align-items-end">
+              <div class="col-md-4">
+                <label class="form-label">From</label>
+                <input type="date" class="form-control" [(ngModel)]="filter.from" name="from">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">To</label>
+                <input type="date" class="form-control" [(ngModel)]="filter.to" name="to">
+              </div>
+              <div class="col-md-2">
+                <button type="submit" class="btn btn-dark w-100">Apply Filter</button>
+              </div>
             </div>
-            <!-- End Page Header -->
+          </form>
 
-            <div class="d-flex align-items-center flex-wrap row-gap-2 mb-3">
-                <a [routerLink]="['/reports/team-report']" class="btn btn-sm btn-light fs-14 me-2">Team Report</a>
-                <a [routerLink]="['/reports/leave-report']" class="btn btn-sm btn-light border fs-14 me-2">Leave
-                    Report</a>
-                <a [routerLink]="['/reports/payroll-report']" class="btn btn-sm btn-dark border fs-14 me-2">Payroll
-                    Report</a>
-                <a [routerLink]="['/reports/contact-report']" class="btn btn-sm btn-light border fs-14 me-2">Contact
-                    Report</a>
-                <a [routerLink]="['/reports/email-report']" class="btn btn-sm btn-light border fs-14 me-2">Email
-                    Report</a>
-                <a [routerLink]="['/reports/security-report']" class="btn btn-sm btn-light border fs-14 me-2">Security
-                    Report</a>
-                <a [routerLink]="['/reports/work-from-home-report']" class="btn btn-sm btn-light border fs-14">Work From
-                    Home Report</a>
-            </div>
-
-            <div class="card shadow">
-                <div class="card-body">
-                    <form action="#">
-                        <div class="row align-items-end gy-3 gx-2">
-                            <div class="col-md-9">
-                                <div class="row gy-3 gx-2">
-                                    <div class="col-md-6">
-                                        <div>
-                                            <label class="form-label">From</label>
-                                            <div class="input-group w-auto input-group-flat">
-                                                <input type="text" class="form-control" data-provider="flatpickr"
-                                                    data-date-format="d M, Y" placeholder="dd/mm/yyyy">
-                                                <span class="input-group-text">
-                                                    <i class="ti ti-calendar"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div>
-                                            <label class="form-label">To</label>
-                                            <div class="input-group w-auto input-group-flat">
-                                                <input type="text" class="form-control" data-provider="flatpickr"
-                                                    data-date-format="d M, Y" placeholder="dd/mm/yyyy">
-                                                <span class="input-group-text">
-                                                    <i class="ti ti-calendar"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div>
-                                    <button type="submit" class="btn btn-dark w-100 btn-lg rounded">Apply
-                                        Filter</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-3 mb-3">
-                <div class="datatable-search">
-                    <a href="javascript:void(0);" class="input-text"><i class="ti ti-search"></i></a>
-                </div>
-                <div class="d-flex align-items-center">
-                    <div class="dropdown me-2">
-                        <a href="javascript:void(0);"
-                            class="btn fs-14 py-1 btn-outline-white d-inline-flex align-items-center"
-                            data-bs-toggle="dropdown" data-bs-auto-close="outside">
-                            <i class="ti ti-filter me-1"></i>Filter
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0 border-0" id="filter-dropdown">
-                            <div class="card mb-0">
-                                <div class="card-header">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h6 class="fw-bold mb-0">Filter</h6>
-                                        <div class="d-flex align-items-center">
-                                            <a href="javascript:void(0);"
-                                                class="link-danger text-decoration-underline">Clear All</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <form action="#">
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <label class="form-label">Name</label>
-                                                <a href="javascript:void(0);" class="link-primary mb-1">Reset</a>
-                                            </div>
-                                            <div class="dropdown">
-                                                <a href="javascript:void(0);"
-                                                    class="dropdown-toggle justify-content-between btn bg-light justify-content-start border w-100"
-                                                    data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                                                    aria-expanded="true">
-                                                    Select
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-menu w-100">
-                                                    <li>
-                                                        <label
-                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
-                                                            <input class="form-check-input m-0 me-2" type="checkbox">
-                                                            John Carter
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label
-                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
-                                                            <input class="form-check-input m-0 me-2" type="checkbox">
-                                                            Sophia White
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label
-                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
-                                                            <input class="form-check-input m-0 me-2" type="checkbox">
-                                                            Michael Johnson
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label
-                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
-                                                            <input class="form-check-input m-0 me-2" type="checkbox">
-                                                            Emily Clark
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label
-                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
-                                                            <input class="form-check-input m-0 me-2" type="checkbox">
-                                                            David Anderson
-                                                        </label>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <label class="form-label">Status</label>
-                                                <a href="javascript:void(0);" class="link-primary mb-1">Reset</a>
-                                            </div>
-                                            <div class="dropdown">
-                                                <a href="javascript:void(0);"
-                                                    class="dropdown-toggle justify-content-between btn bg-light justify-content-start border w-100"
-                                                    data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                                                    aria-expanded="true">
-                                                    Select
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-menu w-100">
-                                                    <li>
-                                                        <label
-                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
-                                                            <input class="form-check-input m-0 me-2" type="checkbox">
-                                                            Active
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label
-                                                            class="dropdown-item px-2 d-flex align-items-center rounded-1">
-                                                            <input class="form-check-input m-0 me-2" type="checkbox">
-                                                            Inactive
-                                                        </label>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-end">
-                                        <button type="button" class="btn btn-outline-white me-2"
-                                            id="close-filter">Close</button>
-                                        <button type="submit" class="btn btn-primary">Filter</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="javascript:void(0);"
-                            class="dropdown-toggle btn fs-14 py-1 btn-outline-white d-inline-flex align-items-center"
-                            data-bs-toggle="dropdown">
-                            <i class="ti ti-sort-descending-2 text-dark me-1"></i>Sort By : Newest
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end p-1">
-                            <li>
-                                <a href="javascript:void(0);" class="dropdown-item rounded-1">Newest</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="dropdown-item rounded-1">Oldest</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="dropdown-item rounded-1">Desending</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="dropdown-item rounded-1">Last Month</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="dropdown-item rounded-1">Last 7 Days</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="table-responsive">
-                <table class="table table-nowrap datatable">
-                    <thead class="thead-ight">
-                        <tr>
-                            <th>Name</th>
-                            <th>Status</th>
-                            <th>Email</th>
-                            <th>Salary</th>
-                            <th>Bank Name</th>
-                            <th>Account Number</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
-                                        <img src="assets/img/employees/employee-01.jpg" alt="img">
-                                    </a>
-                                    <div class="ms-2">
-                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">John Carter</a></h6>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="badge badge-soft-success">Active</span></td>
-                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
-                                    class="__cf_email__"
-                                    data-cfemail="3e545156507e5b465f534e525b105d5153">[email&#160;protected]</a></td>
-                            <td>$3000</td>
-                            <td>JPMorgan Chase Bank</td>
-                            <td>112300987652</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
-                                        <img src="assets/img/employees/employee-02.jpg" alt="img">
-                                    </a>
-                                    <div class="ms-2">
-                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Sophia White</a></h6>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="badge badge-soft-success">Active</span></td>
-                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
-                                    class="__cf_email__"
-                                    data-cfemail="dcafb3acb4b5bd9cb9a4bdb1acb0b9f2bfb3b1">[email&#160;protected]</a>
-                            </td>
-                            <td>$2000</td>
-                            <td>Bank of America</td>
-                            <td>839201746583</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
-                                        <img src="assets/img/employees/employee-03.jpg" alt="img">
-                                    </a>
-                                    <div class="ms-2">
-                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Michael Johnson</a></h6>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="badge badge-soft-success">Active</span></td>
-                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
-                                    class="__cf_email__"
-                                    data-cfemail="2b464248434a4e476b4e534a465b474e05484446">[email&#160;protected]</a>
-                            </td>
-                            <td>$4000</td>
-                            <td>Citibank</td>
-                            <td>745920318467</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
-                                        <img src="assets/img/employees/employee-04.jpg" alt="img">
-                                    </a>
-                                    <div class="ms-2">
-                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Emily Clark</a></h6>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="badge badge-soft-success">Active</span></td>
-                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
-                                    class="__cf_email__"
-                                    data-cfemail="2a4f474346536a4f524b475a464f04494547">[email&#160;protected]</a></td>
-                            <td>$5000</td>
-                            <td>U.S. Bank</td>
-                            <td>190283746512</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
-                                        <img src="assets/img/employees/employee-05.jpg" alt="img">
-                                    </a>
-                                    <div class="ms-2">
-                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">David Anderson</a></h6>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="badge badge-soft-success">Active</span></td>
-                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
-                                    class="__cf_email__"
-                                    data-cfemail="690d081f000d290c11080419050c470a0604">[email&#160;protected]</a></td>
-                            <td>$4500</td>
-                            <td>Wells Fargo</td>
-                            <td>603928175490</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
-                                        <img src="assets/img/employees/employee-06.jpg" alt="img">
-                                    </a>
-                                    <div class="ms-2">
-                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Olivia Haris</a></h6>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="badge badge-soft-success">Active</span></td>
-                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
-                                    class="__cf_email__"
-                                    data-cfemail="0d6261647b646c4d68756c607d6168236e6260">[email&#160;protected]</a>
-                            </td>
-                            <td>$4800</td>
-                            <td>Capital One</td>
-                            <td>458120936784</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
-                                        <img src="assets/img/employees/employee-07.jpg" alt="img">
-                                    </a>
-                                    <div class="ms-2">
-                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Robert Thomas</a></h6>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="badge badge-soft-success">Active</span></td>
-                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
-                                    class="__cf_email__"
-                                    data-cfemail="bdcfd2dfd8cfc9fdd8c5dcd0cdd1d893ded2d0">[email&#160;protected]</a>
-                            </td>
-                            <td>$5200</td>
-                            <td>PNC Bank</td>
-                            <td>782345190627</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
-                                        <img src="assets/img/employees/employee-08.jpg" alt="img">
-                                    </a>
-                                    <div class="ms-2">
-                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Emma Lewis</a></h6>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="badge badge-soft-success">Active</span></td>
-                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
-                                    class="__cf_email__"
-                                    data-cfemail="03666e6e6243667b626e736f662d606c6e">[email&#160;protected]</a></td>
-                            <td>$3800</td>
-                            <td>TD Bank</td>
-                            <td>321980475612</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
-                                        <img src="assets/img/employees/employee-09.jpg" alt="img">
-                                    </a>
-                                    <div class="ms-2">
-                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Daniel Martinz</a></h6>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="badge badge-soft-success">Active</span></td>
-                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
-                                    class="__cf_email__"
-                                    data-cfemail="2145404f48444d614459404c514d440f424e4c">[email&#160;protected]</a>
-                            </td>
-                            <td>$2500</td>
-                            <td>Truist Bank</td>
-                            <td>509183746201</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href="employee-details.html" class="avatar avatar-sm avatar-rounded">
-                                        <img src="assets/img/employees/employee-10.jpg" alt="img">
-                                    </a>
-                                    <div class="ms-2">
-                                        <h6 class="fs-14 mb-0"><a href="employee-details.html">Amelia Curr</a></h6>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span class="badge badge-soft-success">Active</span></td>
-                            <td><a href="https://dleohr.dreamstechnologies.com/cdn-cgi/l/email-protection"
-                                    class="__cf_email__"
-                                    data-cfemail="aecfc3cbc2c7cfeecbd6cfc3dec2cb80cdc1c3">[email&#160;protected]</a>
-                            </td>
-                            <td>$3200</td>
-                            <td>Regions Bank</td>
-                            <td>638910247385</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
+          <!-- Search -->
+          <div class="mt-3">
+            <input type="text" class="form-control" placeholder="Search by name or email..." [(ngModel)]="searchText" (input)="applySearch()" name="search">
+          </div>
         </div>
-        <!-- End Content -->
+      </div>
 
-        <!-- Footer Start -->
-        <div
-            class="footer d-flex align-items-center justify-content-between flex-column flex-sm-row row-gap-2 border-top py-2 px-3">
-            <p class="text-dark mb-0">2025 &copy; <a href="javascript:void(0);" class="link-primary">Dleo HR</a>, All
-                Rights Reserved</p>
-            <p class="text-dark mb-0">Design & Developed by <a href="https://dreamstechnologies.com/" target="_blank"
-                    class="link-primary">Dreams Technologies</a></p>
-        </div>
-        <!-- Footer End -->
+      <!-- Payroll Table -->
+      <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Email</th>
+              <th>Salary</th>
+              <th>Bank Name</th>
+              <th>Account Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let payroll of filteredPayrolls; trackBy: trackById">
+              <td>{{ payroll.name }}</td>
+              <td>
+                <span class="badge"
+                      [ngClass]="{
+                        'bg-success': payroll.status.toLowerCase() === 'active',
+                        'bg-danger': payroll.status.toLowerCase() !== 'active'
+                      }">
+                  {{ payroll.status | titlecase }}
+                </span>
+              </td>
+              <td>{{ payroll.email }}</td>
+              <td>{{ payroll.salary | currency:'USD' }}</td>
+              <td>{{ payroll.bank_name }}</td>
+              <td>{{ payroll.account_number }}</td>
+            </tr>
+            <tr *ngIf="filteredPayrolls.length === 0">
+              <td colspan="6" class="text-center">No payroll records found.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
     </div>
-
-    <!-- ========================
-			End Page Content
-		========================= -->
-
+  </div>
 </div>

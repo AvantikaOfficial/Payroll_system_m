@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,23 +10,32 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   email: string = '';
   password: string = '';
-  errorMessage: string = '';
   showPassword: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  onLogin(): void {
-    if (this.email === 'admin@example.com' && this.password === 'admin123') {
-      // Redirect to dashboard (update this route as per your routing)
-      this.router.navigate(['/dashboard']);
-    } else {
-      this.errorMessage = 'Invalid email or password';
-    }
-  }
-
-
-  togglePasswordVisibility(): void {
+  // 👉 Password show/hide
+  togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
-  
+onLogin() {
+  const userData = { email: this.email, password: this.password };
+
+  this.http.post<any>('http://localhost:3000/login', userData).subscribe({
+    next: (res) => {
+      if (res.success) {
+  localStorage.setItem('user', JSON.stringify(res.user)); 
+  this.router.navigate(['/dashboard']);
+}
+else {
+        alert(res.message || 'Invalid credentials');
+      }
+    },
+    error: (err) => {
+      console.error(err);
+      alert('Login failed');
+    }
+  });
+}
+
 }

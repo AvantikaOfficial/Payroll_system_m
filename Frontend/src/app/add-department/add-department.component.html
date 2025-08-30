@@ -1,4 +1,5 @@
 <app-nav-bar></app-nav-bar>
+
 <!-- Begin Wrapper -->
 <div class="main-wrapper">
   <div class="page-wrapper">
@@ -8,21 +9,40 @@
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <div>
+            <!-- Back Link -->
             <h6 class="mb-3 fs-14">
-              <a href="departments"><i class="ti ti-arrow-left me-1"></i>Departments</a>
+              <a routerLink="/departments">
+                <i class="ti ti-arrow-left me-1"></i> Departments
+              </a>
             </h6>
 
-            <form (ngSubmit)="onSubmit()" [formGroup]="departmentForm">
+            <!-- Department Form -->
+            <form [formGroup]="departmentForm" (ngSubmit)="onSubmit()">
               <div class="card rounded-0">
                 <div class="card-header">
-                  <h6 class="fw-bold mb-0">Department Details</h6>
+                  <h6 class="fw-bold mb-0">
+                    {{ isEditMode ? 'Edit Department' : 'Add Department' }}
+                  </h6>
                 </div>
 
                 <div class="card-body">
                   <!-- Department Name -->
                   <div class="mb-3">
-                    <label class="form-label">Department Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" formControlName="name" required />
+                    <label class="form-label">
+                      Department Name <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      formControlName="name"
+                      class="form-control"
+                      [class.is-invalid]="departmentForm.get('name')?.invalid && (departmentForm.get('name')?.touched || departmentForm.get('name')?.dirty)"
+                    />
+                    <div
+                      *ngIf="departmentForm.get('name')?.invalid && (departmentForm.get('name')?.touched || departmentForm.get('name')?.dirty)"
+                      class="invalid-feedback"
+                    >
+                      Department name is required.
+                    </div>
                   </div>
 
                   <!-- Status -->
@@ -34,22 +54,31 @@
                     </select>
                   </div>
 
-                  <!-- Optional: Department Description -->
+                  <!-- Description -->
                   <div class="mb-3">
                     <label class="form-label">Description</label>
-                    <textarea class="form-control" rows="3" formControlName="description"></textarea>
+                    <textarea
+                      formControlName="description"
+                      rows="3"
+                      class="form-control"
+                    ></textarea>
                   </div>
                 </div>
               </div>
 
+              <!-- Form Buttons -->
               <div class="d-flex align-items-center justify-content-end mt-3">
-                <button type="button" class="btn btn-light me-2" routerLink="/departments">Cancel</button>
-                <button type="submit" class="btn btn-primary" [disabled]="departmentForm.invalid">Add Department</button>
+                <button type="button" class="btn btn-light me-2" routerLink="/departments">
+                  Cancel
+                </button>
+                <button type="submit" class="btn btn-primary" [disabled]="departmentForm.invalid">
+                  {{ isEditMode ? 'Update Department' : 'Add Department' }}
+                </button>
               </div>
             </form>
           </div>
         </div> <!-- end col -->
       </div>
-    </div>
+    </div> <!-- end content -->
   </div>
-</div>
+</div> <!-- end wrapper -->

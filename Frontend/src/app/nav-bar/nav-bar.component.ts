@@ -12,9 +12,6 @@ export class NavBarComponent implements OnInit {
   constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {
-    const storedTheme = localStorage.getItem('theme');
-    this.isDarkMode = storedTheme === 'dark';
-    this.setTheme(this.isDarkMode);
   }
 
   toggleFullscreen(): void {
@@ -48,14 +45,14 @@ export class NavBarComponent implements OnInit {
     }
   }
 
-  toggleTheme(): void {
-    this.isDarkMode = !this.isDarkMode;
-    this.setTheme(this.isDarkMode);
-    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
-  }
+toggleTheme(): void {
+  this.isDarkMode = !this.isDarkMode;
+  this.setTheme(this.isDarkMode);
+  localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
+}
 
-  private setTheme(isDark: boolean): void {
-    const html = document.documentElement;
-    html.setAttribute('data-bs-theme', isDark ? 'dark' : 'light');
-  }
+private setTheme(isDark: boolean): void {
+  document.documentElement.setAttribute('data-bs-theme', isDark ? 'dark' : 'light');
+  console.log('Theme set to:', isDark ? 'dark' : 'light'); // Debug
+}
 }

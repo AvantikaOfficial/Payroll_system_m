@@ -1,0 +1,89 @@
+<app-nav-bar></app-nav-bar>
+<div class="page-wrapper">
+    <div class="content">
+
+        <!-- Page Header -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-3 mb-3">
+            <div class="flex-grow-1">
+                <h5 class="fw-bold">Employees</h5>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-divide p-0 mb-0">
+                        <li class="breadcrumb-item d-flex align-items-center"><a routerLink="/employees"><i
+                                    class="ti ti-home me-1"></i>Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Employees</li>
+                    </ol>
+                </nav>
+            </div>
+            <div>
+                <a routerLink="/add-employee" class="btn btn-primary"><i class="ti ti-circle-plus me-1"></i>New
+                    Employee</a>
+            </div>
+        </div>
+        <!-- End Page Header -->
+
+        <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-3 mb-3">
+            <div class="input-group w-auto input-group-flat">
+                <span class="input-group-text bg-white"><i class="ti ti-search"></i></span>
+                <input type="text" class="form-control form-control-sm bg-white ps-1" placeholder="Search"
+                    [(ngModel)]="searchText">
+            </div>
+
+            <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center border rounded table-grid me-2">
+                    <a routerLink="/employees" class="btn p-1 btn-primary"><i class="ti ti-list"></i></a>
+                    <a routerLink="/employees-grid" class="btn p-1"><i class="ti ti-layout-grid"></i></a>
+                </div>
+
+                <div class="dropdown" [class.show]="sortDropdownOpen">
+                    <button class="btn fs-14 py-1 btn-outline-white d-inline-flex align-items-center"
+                        (click)="toggleSortDropdown()">
+                        <i class="ti ti-sort-descending-2 text-dark me-1"></i> Sort By: {{ selectedSort }}
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end p-1" [class.show]="sortDropdownOpen">
+                        <li><button class="dropdown-item" (click)="sortBy('Newest')">Newest</button></li>
+                        <li><button class="dropdown-item" (click)="sortBy('Oldest')">Oldest</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employees Grid -->
+        <div class="row justify-content-center">
+            <div *ngFor="let emp of filteredEmployees" class="col-xl-4 col-sm-6 mb-3">
+                <div class="card rounded-4 shadow">
+                    <div class="card-body">
+                        <div class="bg-primary-geadient rounded-top-4 text-center mb-4">
+                            <div class="avatar avatar-rounded grid-img">
+                                <img [src]="getEmployeeImage(emp)" alt="{{ emp.firstname + ' ' + emp.lastName }}">
+                            </div>
+                        </div>
+                        <div class="text-center mb-3 pt-3">
+                            <h6 class="fw-bold mb-1"><a [routerLink]="['/employee-details', emp.id]">{{ emp.firstname }}
+                                    {{ emp.lastName }}</a></h6>
+                            <p class="mb-0"><i class="ti ti-mail text-dark me-1"></i>{{ emp.email }}</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <h6 class="fw-semibold mb-1 fs-14">Team</h6>
+                                <span class="fs-13">{{ emp.team }}</span>
+                            </div>
+                            <div>
+                                <h6 class="fw-semibold mb-1 fs-14">Position</h6>
+                                <span class="fs-13">{{ emp.position }}</span>
+                            </div>
+                            <div>
+                                <h6 class="fw-semibold mb-1 fs-14">Phone</h6>
+                                <span class="fs-13">{{ emp.phone }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-3">
+            <button class="btn btn-dark" (click)="loadMore()">Load More</button>
+        </div>
+
+    </div>
+</div>

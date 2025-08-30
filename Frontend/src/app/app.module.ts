@@ -18,7 +18,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TeamReportComponent } from './reports/team-report/team-report.component';
 import { LeaveReportComponent } from './reports/leave-report/leave-report.component';
 import { PayrollReportComponent } from './reports/payroll-report/payroll-report.component';
-import { EmailReportComponent } from './reports/email-report/email-report.component';
 import { SecurityReportComponent } from './reports/security-report/security-report.component';
 import { WorkFromHomeReportComponent } from './reports/work-from-home-report/work-from-home-report.component';
 import { ContactReportComponent } from './reports/contact-report/contact-report.component';
@@ -35,6 +34,15 @@ import { AddDepartmentComponent } from './add-department/add-department.componen
 import { HttpClientModule } from '@angular/common/http';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { RegisterComponent } from './register/register.component';
+import { EmployeesGridComponent } from './employees-grid/employees-grid.component';
+import { EmployeeTeamComponent } from './employee-team/employee-team.component';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { LeaveTypesComponent } from './leave-types/leave-types.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { ManageAdminComponent } from './manage-admin/manage-admin.component';
+import { ManageLineManagerComponent } from './manage-line-manager/manage-line-manager.component';
+import { ManageComponent } from './manage/manage.component';
+import { ManageSuperAdminComponent } from './manage-super-admin/manage-super-admin.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +59,6 @@ import { RegisterComponent } from './register/register.component';
     TeamReportComponent,
     LeaveReportComponent,
     PayrollReportComponent,
-    EmailReportComponent,
     SecurityReportComponent,
     WorkFromHomeReportComponent,
     ContactReportComponent,
@@ -64,7 +71,16 @@ import { RegisterComponent } from './register/register.component';
     ProfileComponent,
     AddDepartmentComponent,
     AddEmployeeComponent,
-    RegisterComponent
+    RegisterComponent,
+    EmployeesGridComponent,
+    EmployeeTeamComponent,
+    EmployeeDetailsComponent,
+    LeaveTypesComponent,
+    AddUserComponent,
+    ManageAdminComponent,
+    ManageLineManagerComponent,
+    ManageComponent,
+    ManageSuperAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +91,7 @@ import { RegisterComponent } from './register/register.component';
     FullCalendarModule,
     HttpClientModule,
     ReactiveFormsModule,
+    
 
   ],
   providers: [],

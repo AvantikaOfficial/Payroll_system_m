@@ -1,13 +1,12 @@
-// src/app/services/department.service.ts
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Department {
-  id: number;
+  id?: number; // Optional because when adding a new dept, id may not be set
   name: string;
   status: 'active' | 'inactive';
+  description?: string;
 }
 
 @Injectable({
@@ -20,8 +19,8 @@ export class DepartmentService {
   constructor(private http: HttpClient) {}
 
   // Create a new department
-  createDepartment(department: Department): Observable<any> {
-    return this.http.post(this.apiUrl, department);
+  addDepartment(department: Omit<Department, 'id'>): Observable<Department> {
+    return this.http.post<Department>(this.apiUrl, department);
   }
 
   // Get all departments
@@ -35,17 +34,12 @@ export class DepartmentService {
   }
 
   // Update department
-  updateDepartment(id: number, department: Department): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, department);
+  updateDepartment(id: number, department: Omit<Department, 'id'>): Observable<Department> {
+    return this.http.put<Department>(`${this.apiUrl}/${id}`, department);
   }
 
   // Delete department
-deleteDepartment(id: number): Observable<any> {
-  return this.http.delete(`/api/department/${id}`);
-}
-addDepartment(data: any): Observable<any> {
-  return this.http.post('/api/department', data);
-}
-
-
+  deleteDepartment(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

@@ -11,7 +11,6 @@ import { ReportCalendarComponent } from './report-calendar/report-calendar.compo
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { TeamReportComponent } from './reports/team-report/team-report.component';
 import { LeaveReportComponent } from './reports/leave-report/leave-report.component';
-import { EmailReportComponent } from './reports/email-report/email-report.component';
 import { PayrollReportComponent } from './reports/payroll-report/payroll-report.component';
 import { SecurityReportComponent } from './reports/security-report/security-report.component';
 import { WorkFromHomeReportComponent } from './reports/work-from-home-report/work-from-home-report.component';
@@ -26,6 +25,15 @@ import { ProfileComponent } from './profile/profile/profile.component';
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { RegisterComponent } from './register/register.component';
+import { EmployeesGridComponent } from './employees-grid/employees-grid.component';
+import { EmployeeTeamComponent } from './employee-team/employee-team.component';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { LeaveTypesComponent } from './leave-types/leave-types.component';
+import { ManageComponent } from './manage/manage.component';
+import { ManageAdminComponent } from './manage-admin/manage-admin.component';
+import { ManageLineManagerComponent } from './manage-line-manager/manage-line-manager.component';
+import { ManageSuperAdminComponent } from './manage-super-admin/manage-super-admin.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -39,13 +47,19 @@ const routes: Routes = [
   { path: 'employees', component: EmployeesComponent },
   { path: 'add-employee', component: AddEmployeeComponent },
   { path: 'add-employee/:id', component: AddEmployeeComponent },
+    { path: 'employees-grid', component: EmployeesGridComponent },
+    { path:'employee-team', component: EmployeeTeamComponent },
+    { path:'employee-details', component: EmployeeDetailsComponent},
+     { path: 'employee-details/:id', component: EmployeeDetailsComponent },
 
   // Departments
   { path: 'departments', component: DepartmentComponent },
   { path: 'add-department', component: AddDepartmentComponent },
+    { path: 'add-department/:id', component: AddDepartmentComponent },
 
   // Others
   { path: 'leaves', component: LeavesComponent },
+  { path: 'leave-types', component: LeaveTypesComponent },
   { path: 'salary', component: SalaryComponent },
   { path: 'charts/apex', component: ChartApexComponent },
   { path: 'report-calendar', component: ReportCalendarComponent },
@@ -58,7 +72,6 @@ const routes: Routes = [
       { path: '', redirectTo: 'team-report', pathMatch: 'full' },
       { path: 'team-report', component: TeamReportComponent },
       { path: 'leave-report', component: LeaveReportComponent },
-      { path: 'email-report', component: EmailReportComponent },
       { path: 'payroll-report', component: PayrollReportComponent },
       { path: 'security-report', component: SecurityReportComponent },
       { path: 'work-from-home-report', component: WorkFromHomeReportComponent },
@@ -87,7 +100,18 @@ const routes: Routes = [
       { path: 'lock-screen', component: LockScreenComponent },
       { path: 'profile', component: ProfileComponent },
     ]
-  }
+  },
+
+  // Manage
+  { path: 'manage', component: ManageComponent},
+  { path: 'manage-admin', component: ManageAdminComponent },
+  { path: 'manage-line-manager', component: ManageLineManagerComponent },
+  { path: 'manage-super-admin', component: ManageSuperAdminComponent},
+  { path: 'add-user', component: AddUserComponent },
+  { path: 'users', component: ManageComponent }, // your users list page
+  { path: '', redirectTo: '/users', pathMatch: 'full' },
+  { path: 'users/add', component: AddUserComponent },          // add mode
+  { path: 'users/edit/:id', component: AddUserComponent }
 ];
 
 @NgModule({
